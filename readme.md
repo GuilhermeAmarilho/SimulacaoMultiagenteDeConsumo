@@ -1,166 +1,110 @@
-# 🛒 Simulação Multiagente: Promoções e Comportamento do Cliente
+# Simulação Multiagente de Consumo em um Mercado
 
 ## 📌 Descrição
 
-Este projeto tem como objetivo simular o comportamento de clientes em um mercado, analisando como promoções influenciam decisões de compra e impactam o sistema como um todo.
+Este projeto consiste em uma simulação multiagente desenvolvida em Python utilizando a biblioteca MESA. O objetivo é analisar o comportamento de consumo de clientes em um mercado, considerando fatores como promoção, preço e influência social.
 
-A simulação utiliza o conceito de **Sistemas Multiagentes**, onde cada cliente é representado como um agente autônomo que toma decisões com base em suas características individuais.
-
----
-
-## 🎯 Objetivo
-
-Investigar como mudanças no comportamento individual dos clientes (nível micro) afetam o comportamento coletivo do sistema (nível macro), especialmente em relação a:
-
-* Volume de vendas
-* Consumo de produtos
-* Esgotamento de estoque
-* Compras por impulso
+A simulação permite observar como decisões individuais dos agentes impactam o comportamento coletivo do sistema, evidenciando padrões emergentes ao longo do tempo.
 
 ---
 
-## 🧠 Modelo do Sistema
+## 🧠 Modelo
 
-### 👥 Agentes
+O sistema é composto por agentes que representam clientes, cada um com características próprias:
 
-Os agentes representam os **clientes**, que possuem comportamentos diferentes:
+- Dinheiro disponível
+- Nível de interesse
+- Tipo de comportamento:
+  - Econômico
+  - Impulsivo
+  - Regular
 
-* Cliente econômico → prioriza preço baixo
-* Cliente impulsivo → compra mais com promoções
-* Cliente fiel → mantém preferências fixas
-* Cliente planejado → evita compras desnecessárias
+Além disso, o modelo considera variáveis globais:
 
----
+- Promoção
+- Preço do produto
+- Influência social
 
-### 🛍️ Ambiente
-
-O ambiente representa um mercado com:
-
-* Produtos
-* Preços
-* Promoções
-* Estoque limitado
+A cada rodada, os agentes decidem se realizam uma compra com base nessas variáveis.
 
 ---
 
-## ⚙️ Variáveis do Modelo
+## ⚙️ Simulação
 
-O sistema considera pelo menos três variáveis interdependentes:
+A simulação foi configurada com:
 
-* **Nível de desconto** → influencia a decisão de compra
-* **Impulsividade do cliente** → afeta compras por promoção
-* **Estoque** → limita a disponibilidade dos produtos
+- 50 agentes
+- 100 rodadas
+- 20 execuções por cenário
 
-Variável adicional:
+Foram analisados os seguintes cenários:
 
-* **Orçamento do cliente**
-
----
-
-## 🔁 Dinâmica da Simulação
-
-A cada passo da simulação:
-
-1. Clientes entram no mercado
-2. Observam os produtos disponíveis
-3. Avaliam preço, promoção e orçamento
-4. Decidem comprar ou não
-5. O estoque é atualizado
-6. Os dados são registrados
+- Sem promoção
+- Promoção média
+- Promoção alta
+- Sem influência social
 
 ---
 
-## 📊 Métricas Coletadas
+## 📊 Resultados
 
-Durante a simulação, são coletados dados como:
+Os resultados mostram que o sistema apresenta:
 
-* Total de vendas
-* Faturamento
-* Produtos vendidos em promoção
-* Compras médias por cliente
-* Estoque ao longo do tempo
+- Alto consumo inicial
+- Redução progressiva das compras ao longo do tempo
+- Comportamento emergente decorrente da interação entre agentes
 
----
-
-## 🔬 Cenários de Simulação
-
-Serão testados diferentes cenários, como:
-
-* Sem promoção
-* Promoções leves
-* Promoções agressivas
-* Diferentes perfis de clientes
+O gráfico gerado demonstra a evolução das compras em diferentes cenários.
 
 ---
 
-## 📈 Resultados Esperados
+## 🚀 Como executar
 
-A simulação permite observar:
+1. Criar um ambiente virtual:
 
-* Aumento de vendas em promoções
-* Picos de consumo
-* Esgotamento de estoque
-* Diferenças entre perfis de clientes
-* Comportamentos emergentes
+```bash
+    python -m venv venv_CC
+```
 
----
+2. Ativar o ambiente:
 
-## 🛠️ Tecnologias Utilizadas
+```bash
+    venv_CC\Scripts\activate
+```
 
-* Python
-* Mesa (framework para simulação multiagente)
+3. Instalar dependências:
 
----
+```bash
+    pip install mesa matplotlib
+```
 
-## 📦 Estrutura do Projeto
+4. Executar o projeto:
 
-```mkd
-project/
-│── model/
-│   ├── agents.py
-│   ├── model.py
-│
-│── analysis/
-│   ├── plots.py
-│
-│── run.py
-│── README.md
+```bash
+    python run.py
 ```
 
 ---
 
-## 🚀 Como Executar
+## 📁 Estrutura do projeto
 
-* 1 nstale as dependências:
-
-    ```bat
-    pip install mesa
-    ```
-
-* 2 Execute o projeto:
-
-    ```bat
-    python run.py
-    ```
+```
+.
+├── agents.py
+├── model.py
+├── run.py
+├── resultados/
+└── README.md
+```
 
 ---
 
-## 📄 Entrega
+## 📌 Observações
 
-Este projeto inclui:
-
-* Código fonte da simulação
-* Análise dos resultados
-* Relatório em PDF
+O modelo não considera reposição de renda dos agentes, o que resulta na redução progressiva das compras ao longo das rodadas. Esse comportamento é proposital para evidenciar padrões emergentes no sistema.
 
 ---
 
 ## 👨‍💻 Autor
 
-Guilherme Amarilho
-
----
-
-## 📚 Contexto Acadêmico
-
-Trabalho desenvolvido para a disciplina de **Computação Científica**, com foco em **Simulação Multiagente**.
+### Guilherme Amarilho
